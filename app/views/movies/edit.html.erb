@@ -1,1 +1,14 @@
 <h1>Edit movie</h1>
+
+<%# every form can make a post request  %>
+<form action="<%= movie_path(params[:id])%>" method="POST">
+    <input type="hidden" name="_method" value="put">
+    <label>Title</label>
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+    <input type="text" name="movie[title]" value="<%= @movie["title"]%>">
+    <br><br>
+    <label>Rating<label>
+    <input type="number" name="movie[rating]" min="1" max="10" value="<%= @movie["rating"]%>">
+    <br><br>
+    <input type="submit" value="Update movie">
+</form>
