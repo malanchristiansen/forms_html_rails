@@ -1,1 +1,12 @@
 <h1>New movie</h1>
+<%# every form can make a post request  %>
+<form action="<%= movies_path%>" method="POST">
+    <label>Title</label>
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+    <input type="text" name="movie[title]">
+    <br><br>
+    <label>Rating<label>
+    <input type="number" name="movie[rating]" min="1" max="10">
+    <br><br>
+    <input type="submit" value="Create movie">
+</form>
